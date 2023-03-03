@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class MondeIG {
+public class MondeIG extends SujetObserve{
 
     private Map<String, EtapeIG> map;
     private int cpt = 0;
@@ -13,6 +13,7 @@ public class MondeIG {
         this.map = new HashMap<>();
         EtapeIG etape = new ActiviteIG("Act"+cpt++, 80, 40);
         map.put(etape.getIdentifiant(), etape);
+
     }
 
     public void ajouter(String type){
@@ -24,6 +25,7 @@ public class MondeIG {
         }
         assert etape != null;
         map.put(etape.getIdentifiant(), etape);
+        System.out.println("oui");
     }
 
 }
