@@ -1,6 +1,7 @@
 package twisk.mondeIG;
 
 import twisk.outils.FabriqueIdentifiant;
+import twisk.outils.TailleComposants;
 
 import java.util.Random;
 
@@ -12,10 +13,11 @@ public abstract class EtapeIG {
     private final int largeur;
     private final int hauteur;
 
-    public EtapeIG(String nom, int largeur, int hauteur){
+    public EtapeIG(String nom){
         this.nom = nom;
-        this.largeur = largeur;
-        this.hauteur = hauteur;
+        TailleComposants constantes = new TailleComposants();
+        largeur = constantes.activiteLargeur();
+        hauteur = constantes.activiteHauteur();
         this.identifiant = FabriqueIdentifiant.getInstance().getIdentifiantEtape();
         Random random = new Random();
         this.posX = random.nextInt(500);

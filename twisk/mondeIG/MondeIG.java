@@ -11,7 +11,7 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
 
     public MondeIG(){
         this.map = new HashMap<>();
-        EtapeIG etape = new ActiviteIG("Act"+cpt++, 80, 40);
+        EtapeIG etape = new ActiviteIG("Act"+cpt++);
         map.put(etape.getIdentifiant(), etape);
     }
 
@@ -19,7 +19,7 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
         EtapeIG etape = null;
         switch (type){
             case "Activite" :
-                etape = new ActiviteIG("Act"+cpt++, 80, 40);
+                etape = new ActiviteIG("Act"+cpt++);
                 break;
         }
         assert etape != null;

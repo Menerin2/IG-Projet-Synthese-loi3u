@@ -10,7 +10,7 @@ public class TestEtapeIG {
 
     @Test
     public void testConstructeur(){
-        EtapeIG etape = new ActiviteIG("defaut", 80, 40);
+        EtapeIG etape = new ActiviteIG("defaut");
         assert etape.getHauteur() == 40;
         assert etape.getLargeur() == 80;
         assert Objects.equals(etape.getNom(), "defaut");
