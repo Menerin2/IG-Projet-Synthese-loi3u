@@ -18,8 +18,8 @@ public abstract class EtapeIG {
         this.hauteur = hauteur;
         this.identifiant = FabriqueIdentifiant.getInstance().getIdentifiantEtape();
         Random random = new Random();
-        this.posX = random.nextInt(400);
-        this.posY = random.nextInt(400);
+        this.posX = random.nextInt(500);
+        this.posY = random.nextInt(500);
     }
 
     public String getNom() {
@@ -56,5 +56,10 @@ public abstract class EtapeIG {
 
     public int getHauteur() {
         return hauteur;
+    }
+
+    @Override
+    public String toString(){
+        return getNom();
     }
 }

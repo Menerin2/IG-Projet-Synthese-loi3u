@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class SujetObserve {
 
-    private final ArrayList<Observateur> obs = new ArrayList<>(10);
+    private final ArrayList<Observateur> obs = new ArrayList<>();
 
     public SujetObserve(){
 

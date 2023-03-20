@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class MondeIG extends SujetObserve{
+public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
 
     private Map<String, EtapeIG> map;
     private int cpt = 0;
@@ -13,7 +13,6 @@ public class MondeIG extends SujetObserve{
         this.map = new HashMap<>();
         EtapeIG etape = new ActiviteIG("Act"+cpt++, 80, 40);
         map.put(etape.getIdentifiant(), etape);
-
     }
 
     public void ajouter(String type){
@@ -25,7 +24,19 @@ public class MondeIG extends SujetObserve{
         }
         assert etape != null;
         map.put(etape.getIdentifiant(), etape);
-        System.out.println("oui");
+        notifierObservateurs();
     }
 
+    public Map<String, EtapeIG> getMap(){
+        return map;
+    }
+
+    public int getCpt(){
+        return cpt;
+    }
+
+    @Override
+    public Iterator iterator() {
+        return getMap().values().iterator();
+    }
 }
