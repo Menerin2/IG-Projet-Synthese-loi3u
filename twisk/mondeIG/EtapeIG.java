@@ -3,15 +3,18 @@ package twisk.mondeIG;
 import twisk.outils.FabriqueIdentifiant;
 import twisk.outils.TailleComposants;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 
-public abstract class EtapeIG {
+public abstract class EtapeIG implements Iterable<PointDeControleIG>{
     private String nom;
     private final String identifiant;
     private int posX;
     private int posY;
     private final int largeur;
     private final int hauteur;
+    private ArrayList<PointDeControleIG> points = new ArrayList<>(4);
 
     public EtapeIG(String nom){
         this.nom = nom;
@@ -22,6 +25,10 @@ public abstract class EtapeIG {
         Random random = new Random();
         this.posX = random.nextInt(500);
         this.posY = random.nextInt(500);
+        for(int i=1; i<5; i++){
+            PointDeControleIG point = new PointDeControleIG(this, i);
+            points.add(point);
+        }
     }
 
     public String getNom() {
@@ -58,6 +65,15 @@ public abstract class EtapeIG {
 
     public int getHauteur() {
         return hauteur;
+    }
+
+    public ArrayList<PointDeControleIG> getPoints() {
+        return points;
+    }
+
+    @Override
+    public Iterator<PointDeControleIG> iterator() {
+        return points.iterator();
     }
 
     @Override

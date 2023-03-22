@@ -14,7 +14,8 @@ public class VueActiviteIG extends VueEtapeIG{
         TailleComposants constantes = new TailleComposants();
         getChildren().addAll(getNom(), boite);
         super.relocate(etape.getPosX(), etape.getPosY());
-        boite.setPrefSize(constantes.boxHauteur(), constantes.boxLargeur());
+        this.setPrefSize(constantes.activiteLargeur(), constantes.activiteHauteur());
+        boite.setPrefSize(constantes.boxLargeur(), constantes.boxHauteur());
         boite.setStyle("-fx-border-color: #0059FF; -fx-background-insets: 0 0 -1 0, 0, 1, 2; -fx-background-radius: 3px, 3px, 2px, 1px;");
     }
 

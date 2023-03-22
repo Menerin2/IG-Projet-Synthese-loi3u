@@ -3,6 +3,7 @@ package twisk.vues;
 import javafx.scene.layout.Pane;
 import twisk.mondeIG.EtapeIG;
 import twisk.mondeIG.MondeIG;
+import twisk.mondeIG.PointDeControleIG;
 
 public class VueMondeIG extends Pane implements Observateur{
 
@@ -20,6 +21,10 @@ public class VueMondeIG extends Pane implements Observateur{
     public void reagir() {
         getChildren().clear();
         for(EtapeIG etape : monde){
+            for(PointDeControleIG point : etape.getPoints()){
+                VuePointDeControleIG vuePoint = new VuePointDeControleIG(point);
+                getChildren().add(vuePoint);
+            }
             VueEtapeIG vue = new VueActiviteIG(this.monde, etape);
             getChildren().add(vue);
         }
