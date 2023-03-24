@@ -16,7 +16,7 @@ public class SujetObserve {
         obs.add(v);
     }
 
-    void notifierObservateurs(){
+    public void notifierObservateurs(){
         for(Observateur ob : obs){
             ob.reagir();
         }

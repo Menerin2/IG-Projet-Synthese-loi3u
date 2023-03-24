@@ -5,15 +5,15 @@ public class TailleComposants {
     public TailleComposants(){}
 
     public int activiteLargeur(){
-        return 200;
+        return 130;
     }
     public int activiteHauteur(){
-        return 100;
+        return 50;
     }
     public int boxLargeur(){
-        return 180;
+        return 110;
     }
     public int boxHauteur(){
-        return 70;
+        return 50;
     }
 }
