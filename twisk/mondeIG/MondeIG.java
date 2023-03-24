@@ -34,8 +34,20 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
 
     public void ajouter(PointDeControleIG pt1, PointDeControleIG pt2){
         ArcIG arc = new ArcIG(pt1, pt2);
-        arcs.add(arc);
+        if(testValiditeArc(arc)){
+        } else {
+            arcs.add(arc);
+        }
         setEstTouche(0);
+    }
+    public boolean isEqual(EtapeIG etape1, EtapeIG etape2){
+        return etape1.getIdentifiant().equals(etape2.getIdentifiant());
+    }
+    public boolean testValiditeArc(ArcIG arc){
+        if(isEqual(arc.getPoints()[0].getEtape(), arc.getPoints()[1].getEtape())){
+            return true;
+        }
+        return false;
     }
 
     public Map<String, EtapeIG> getMap(){

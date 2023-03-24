@@ -42,4 +42,8 @@ public class PointDeControleIG {
     public double[] getPos() {
         return pos;
     }
+
+    public EtapeIG getEtape(){
+        return etape;
+    }
 }

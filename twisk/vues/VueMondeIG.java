@@ -26,7 +26,6 @@ public class VueMondeIG extends Pane implements Observateur{
     public void reagir() {
         getChildren().clear();
         for(ArcIG arc : monde.getArcs()){
-            System.out.println("oui");
             VueArcIG vueArc = new VueArcIG(monde, arc);
             getChildren().add(vueArc);
         }
