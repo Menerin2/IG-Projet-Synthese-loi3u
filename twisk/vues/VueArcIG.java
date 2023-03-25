@@ -6,7 +6,7 @@ import javafx.scene.shape.Polyline;
 import twisk.mondeIG.ArcIG;
 import twisk.mondeIG.MondeIG;
 
-public class VueArcIG extends Pane {
+public class VueArcIG extends Pane implements Observateur{
 
     private Polyline polyline;
     private Line line = new Line();
@@ -34,5 +34,10 @@ public class VueArcIG extends Pane {
         double dx = (ex + length * Math.cos(lineAngle + arrowAngle));
         double dy = (ey + length * Math.sin(lineAngle + arrowAngle));
         return new Polyline(ex, ey, dx, dy, gx, gy, ex, ey);
+    }
+
+    @Override
+    public void reagir() {
+
     }
 }

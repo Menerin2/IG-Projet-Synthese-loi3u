@@ -17,6 +17,12 @@ public class VueActiviteIG extends VueEtapeIG{
         this.setPrefSize(constantes.activiteLargeur(), constantes.activiteHauteur());
         boite.setPrefSize(constantes.boxLargeur(), constantes.boxHauteur());
         boite.setStyle("-fx-border-color: #0059FF; -fx-background-insets: 0 0 -1 0, 0, 1, 2; -fx-background-radius: 3px, 3px, 2px, 1px;");
+        if(monde.getSelectionne().containsKey(etape.getIdentifiant())){
+            this.setStyle("-fx-background-color: #fff68f;");
+        }else{
+            this.setStyle("-fx-background-color: #ffffff;");
+        }
+        this.setOnMouseClicked(new EcouteurEtape(monde, etape));
     }
 
     @Override

@@ -8,6 +8,7 @@ import java.util.Map;
 public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
 
     private Map<String, EtapeIG> map;
+    private Map<String, EtapeIG> selectionne;
 
     private ArrayList<ArcIG> arcs = new ArrayList<>(10);
     private int cpt = 0;
@@ -16,6 +17,7 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
 
     public MondeIG(){
         this.map = new HashMap<>();
+        this.selectionne = new HashMap<>();
         EtapeIG etape = new ActiviteIG("Act"+cpt++);
         map.put(etape.getIdentifiant(), etape);
     }
@@ -49,6 +51,13 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
         }
         return false;
     }
+    public void estSelectionne(EtapeIG etape){
+        selectionne.put(etape.getIdentifiant(), etape);
+    }
+
+    public void estDeselectionne(EtapeIG etape){
+        selectionne.remove(etape.getIdentifiant());
+    }
 
     public Map<String, EtapeIG> getMap(){
         return map;
@@ -81,6 +90,10 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
     public void estTouche(PointDeControleIG point){
         this.pointClick = point;
         this.estTouche = 1;
+    }
+
+    public Map<String, EtapeIG> getSelectionne() {
+        return selectionne;
     }
 
     @Override
