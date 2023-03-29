@@ -1,5 +1,7 @@
 package twisk.mondeIG;
 
+import javafx.scene.shape.Arc;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -8,7 +10,8 @@ import java.util.Map;
 public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
 
     private Map<String, EtapeIG> map;
-    private Map<String, EtapeIG> selectionne;
+    private Map<String, EtapeIG> selectionEtape;
+    private ArrayList<ArcIG> selectionArc = new ArrayList<>(10);
 
     private ArrayList<ArcIG> arcs = new ArrayList<>(10);
     private int cpt = 0;
@@ -17,7 +20,7 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
 
     public MondeIG(){
         this.map = new HashMap<>();
-        this.selectionne = new HashMap<>();
+        this.selectionEtape = new HashMap<>();
         EtapeIG etape = new ActiviteIG("Act"+cpt++);
         map.put(etape.getIdentifiant(), etape);
     }
@@ -52,11 +55,23 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
         return false;
     }
     public void estSelectionne(EtapeIG etape){
-        selectionne.put(etape.getIdentifiant(), etape);
+        selectionEtape.put(etape.getIdentifiant(), etape);
+    }
+
+    public void estSelectionne(ArcIG arc){
+        selectionArc.add(arc);
     }
 
     public void estDeselectionne(EtapeIG etape){
-        selectionne.remove(etape.getIdentifiant());
+        selectionEtape.remove(etape.getIdentifiant());
+    }
+
+    public void estDeselectionne(ArcIG arc){
+        selectionArc.remove(arc);
+    }
+    public void deselectionnerTout(){
+        selectionArc.clear();
+        selectionEtape.clear();
     }
 
     public Map<String, EtapeIG> getMap(){
@@ -92,8 +107,12 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
         this.estTouche = 1;
     }
 
-    public Map<String, EtapeIG> getSelectionne() {
-        return selectionne;
+    public Map<String, EtapeIG> getSelectionEtape() {
+        return selectionEtape;
+    }
+
+    public ArrayList<ArcIG> getSelectionArc(){
+        return selectionArc;
     }
 
     @Override

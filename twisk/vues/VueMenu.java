@@ -24,7 +24,9 @@ public class VueMenu extends MenuBar implements Observateur{
         suppr.setOnAction(new EcouteurSuppr(monde));
         MenuItem rename = new MenuItem("Renommer la séléction");
         rename.setOnAction(new EcouteurRename(monde));
-        edition.getItems().addAll(suppr, rename);
+        MenuItem enleve = new MenuItem("Enlever la selection");
+        enleve.setOnAction(new EcouteurEnlever(monde));
+        edition.getItems().addAll(suppr, rename, enleve);
 
         this.getMenus().addAll(fichier, edition);
     }

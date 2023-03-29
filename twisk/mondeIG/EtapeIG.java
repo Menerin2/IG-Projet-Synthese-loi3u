@@ -10,8 +10,8 @@ import java.util.Random;
 public abstract class EtapeIG implements Iterable<PointDeControleIG>{
     private String nom;
     private final String identifiant;
-    private int posX;
-    private int posY;
+    private double posX;
+    private double posY;
     private final int largeur;
     private final int hauteur;
     private ArrayList<PointDeControleIG> points = new ArrayList<>(4);
@@ -39,19 +39,19 @@ public abstract class EtapeIG implements Iterable<PointDeControleIG>{
         this.nom = nom;
     }
 
-    public int getPosX() {
+    public double getPosX() {
         return posX;
     }
 
-    public void setPosX(int posX) {
+    public void setPosX(double posX) {
         this.posX = posX;
     }
 
-    public int getPosY() {
+    public double getPosY() {
         return posY;
     }
 
-    public void setPosY(int posY) {
+    public void setPosY(double posY) {
         this.posY = posY;
     }
 

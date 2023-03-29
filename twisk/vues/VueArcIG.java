@@ -10,14 +10,25 @@ public class VueArcIG extends Pane implements Observateur{
 
     private Polyline polyline;
     private Line line = new Line();
+    private MondeIG monde;
 
     public VueArcIG(MondeIG monde, ArcIG arc){
+        this.monde = monde;
         line.setStartX(arc.getPoints()[0].getPos()[0]);
         line.setStartY(arc.getPoints()[0].getPos()[1]);
         line.setEndX(arc.getPoints()[1].getPos()[0]);
         line.setEndY(arc.getPoints()[1].getPos()[1]);
         polyline = makeArrow();
         this.getChildren().addAll(line, polyline);
+        if(monde.getSelectionArc().contains(arc)){
+            line.setStyle("-fx-stroke: #8e91c8;");
+            polyline.setStyle("-fx-stroke: #8e91c8;");
+        }else{
+            line.setStyle("-fx-stroke: #000000;");
+            polyline.setStyle("-fx-stroke: #000000;");
+        }
+
+        polyline.setOnMouseClicked(new EcouteurEtpEtArc(monde, arc));
     }
 
 

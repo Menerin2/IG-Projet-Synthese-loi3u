@@ -16,13 +16,13 @@ public class EcouteurRename implements EventHandler {
     }
     @Override
     public void handle(Event event) {
-        if(monde.getSelectionne().size()==1) {
+        if(monde.getSelectionEtape().size()==1) {
             TextInputDialog rename = new TextInputDialog("Renommez votre Etape");
             rename.setHeaderText("Entrez le nom par lequel vous voulez appeler votre Etape");
             rename.setContentText("Nom :");
             Optional<String> result = rename.showAndWait();
             for (EtapeIG etape : monde) {
-                if (monde.getSelectionne().containsKey(etape.getIdentifiant())) {
+                if (monde.getSelectionEtape().containsKey(etape.getIdentifiant())) {
                     result.ifPresent(etape::setNom);
                 }
             }
@@ -33,6 +33,7 @@ public class EcouteurRename implements EventHandler {
             alert.setContentText("On ne peut changer le nom de plusieurs Etapes en même temps");
             alert.showAndWait();
         }
+        monde.deselectionnerTout();
         monde.notifierObservateurs();
     }
 }

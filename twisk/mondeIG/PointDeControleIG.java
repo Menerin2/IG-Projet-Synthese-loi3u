@@ -39,6 +39,32 @@ public class PointDeControleIG {
         pos[1]=tempY;
     }
 
+    public void bougerPoint(int direction, double posX, double posY){
+        switch (direction){
+            case 1:
+                posX = etape.getPosX();
+                posY = etape.getPosY()+0.5*etape.getHauteur();
+                break;
+            case 2:
+                posX = etape.getPosX()+0.5*etape.getLargeur();
+                posY = etape.getPosY();
+                break;
+            case 3:
+                posX = etape.getPosX()+etape.getLargeur();
+                posY = etape.getPosY()+0.5*etape.getHauteur();
+                break;
+            case 4:
+                posX = etape.getPosX()+0.5*etape.getLargeur();
+                posY = etape.getPosY()+etape.getHauteur();
+                break;
+            default:
+                posX = -1;
+                posY = -1;
+        }
+        pos[0]=posX;
+        pos[1]=posY;
+    }
+
     public double[] getPos() {
         return pos;
     }

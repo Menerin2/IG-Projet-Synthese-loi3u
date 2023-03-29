@@ -9,13 +9,14 @@ import twisk.mondeIG.MondeIG;
 public abstract class VueEtapeIG extends VBox implements Observateur{
 
     private MondeIG monde;
-    private EtapeIG etape;
+    protected EtapeIG etape;
     private Label nom;
 
     public VueEtapeIG(MondeIG monde, EtapeIG etape){
         this.monde = monde;
         this.etape = etape;
         this.nom = new Label(etape.getNom() + " : 4 + 2 temps");
+        this.setOnDragDetected(new EcouteurDrag(this));
     }
 
     public MondeIG getMonde() {

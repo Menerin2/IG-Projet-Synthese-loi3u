@@ -1,5 +1,6 @@
 package twisk.vues;
 
+import javafx.scene.input.DragEvent;
 import javafx.scene.layout.Pane;
 import twisk.mondeIG.ArcIG;
 import twisk.mondeIG.EtapeIG;
@@ -20,6 +21,8 @@ public class VueMondeIG extends Pane implements Observateur{
                 getChildren().add(vuePoint);
             }
         }
+        this.setOnDragOver(new EcouteurDragOver(monde));
+        this.setOnDragDropped(new EcouteurDragDrop(monde));
         monde.ajouterObservateur(this);
     }
     @Override
