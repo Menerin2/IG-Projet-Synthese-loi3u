@@ -10,7 +10,7 @@ import twisk.mondeIG.MondeIG;
 import java.util.Optional;
 
 public class EcouteurEcart implements EventHandler {
-    private MondeIG monde;
+    private final MondeIG monde;
     public EcouteurEcart(MondeIG monde){
         this.monde = monde;
     }

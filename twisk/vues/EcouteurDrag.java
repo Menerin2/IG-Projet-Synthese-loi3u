@@ -1,15 +1,13 @@
 package twisk.vues;
 
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
-import twisk.mondeIG.MondeIG;
 
 public class EcouteurDrag implements EventHandler<MouseEvent> {
-    private VueEtapeIG vue;
+    private final VueEtapeIG vue;
 
     public EcouteurDrag(VueEtapeIG vue){
         this.vue = vue;

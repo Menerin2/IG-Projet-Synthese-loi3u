@@ -2,13 +2,11 @@ package twisk.mondeIG;
 
 public class PointDeControleIG {
 
-    private double[] pos = new double[2];
-    private String id;
-    private EtapeIG etape;
+    private final double[] pos = new double[2];
+    private final EtapeIG etape;
 
     public PointDeControleIG(EtapeIG etape, int diretion){
         this.etape = etape;
-        this.id = etape.getIdentifiant()+diretion;
         donnerPosition(diretion, pos);
     }
 
@@ -39,7 +37,9 @@ public class PointDeControleIG {
         pos[1]=tempY;
     }
 
-    public void bougerPoint(int direction, double posX, double posY){
+    public void bougerPoint(int direction){
+        double posX;
+        double posY;
         switch (direction){
             case 1:
                 posX = etape.getPosX();
@@ -61,8 +61,8 @@ public class PointDeControleIG {
                 posX = -1;
                 posY = -1;
         }
-        pos[0]=posX;
-        pos[1]=posY;
+        pos[0]= posX;
+        pos[1]= posY;
     }
 
     public double[] getPos() {

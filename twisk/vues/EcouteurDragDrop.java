@@ -9,7 +9,7 @@ import twisk.mondeIG.PointDeControleIG;
 import twisk.outils.TailleComposants;
 
 public class EcouteurDragDrop implements EventHandler<DragEvent> {
-    private MondeIG monde;
+    private final MondeIG monde;
 
     public EcouteurDragDrop(MondeIG monde){
         this.monde = monde;
@@ -39,7 +39,7 @@ public class EcouteurDragDrop implements EventHandler<DragEvent> {
     private void bougerPoints(EtapeIG etape){
         int cpt=1;
         for (PointDeControleIG point : etape.getPoints()){
-            point.bougerPoint(cpt, etape.getPosX(), etape.getPosY());
+            point.bougerPoint(cpt);
             cpt++;
         }
     }

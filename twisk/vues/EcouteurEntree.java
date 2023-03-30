@@ -6,7 +6,7 @@ import twisk.mondeIG.EtapeIG;
 import twisk.mondeIG.MondeIG;
 
 public class EcouteurEntree implements EventHandler {
-    private MondeIG monde;
+    private final MondeIG monde;
     public EcouteurEntree(MondeIG monde){
         this.monde = monde;
     }

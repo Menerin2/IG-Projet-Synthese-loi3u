@@ -8,17 +8,14 @@ import twisk.mondeIG.MondeIG;
 
 public class VueArcIG extends Pane implements Observateur{
 
-    private Polyline polyline;
-    private Line line = new Line();
-    private MondeIG monde;
+    private final Line line = new Line();
 
     public VueArcIG(MondeIG monde, ArcIG arc){
-        this.monde = monde;
         line.setStartX(arc.getPoints()[0].getPos()[0]);
         line.setStartY(arc.getPoints()[0].getPos()[1]);
         line.setEndX(arc.getPoints()[1].getPos()[0]);
         line.setEndY(arc.getPoints()[1].getPos()[1]);
-        polyline = makeArrow();
+        Polyline polyline = makeArrow();
         this.getChildren().addAll(line, polyline);
         if(monde.getSelectionArc().contains(arc)){
             line.setStyle("-fx-stroke: #8e91c8;");

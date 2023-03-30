@@ -5,13 +5,9 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import twisk.mondeIG.MondeIG;
 
-import java.awt.*;
-
 public class VueMenu extends MenuBar implements Observateur{
 
-    private MondeIG monde;
     public VueMenu(MondeIG monde){
-        this.monde = monde;
 
         Menu fichier = new Menu("Fichier");
         MenuItem quit = new MenuItem("Quitter");

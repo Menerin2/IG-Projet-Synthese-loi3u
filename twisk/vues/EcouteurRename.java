@@ -10,7 +10,7 @@ import twisk.mondeIG.MondeIG;
 import java.util.Optional;
 
 public class EcouteurRename implements EventHandler {
-    private MondeIG monde;
+    private final MondeIG monde;
     public EcouteurRename(MondeIG monde){
         this.monde = monde;
     }

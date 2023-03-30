@@ -6,7 +6,7 @@ import twisk.mondeIG.MondeIG;
 
 public class EcouteurBouton implements EventHandler {
 
-    private MondeIG monde;
+    private final MondeIG monde;
 
     public EcouteurBouton(MondeIG monde){
         this.monde = monde;

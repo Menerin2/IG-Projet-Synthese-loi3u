@@ -6,8 +6,8 @@ import twisk.mondeIG.MondeIG;
 import twisk.mondeIG.PointDeControleIG;
 
 public class EcouteurPoint implements EventHandler {
-    private MondeIG monde;
-    private PointDeControleIG point;
+    private final MondeIG monde;
+    private final PointDeControleIG point;
     public EcouteurPoint(MondeIG monde, PointDeControleIG point){
         this.monde = monde;
         this.point = point;

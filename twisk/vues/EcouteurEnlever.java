@@ -6,7 +6,7 @@ import twisk.mondeIG.MondeIG;
 
 public class EcouteurEnlever implements EventHandler {
 
-    private MondeIG monde;
+    private final MondeIG monde;
 
     public EcouteurEnlever(MondeIG monde){
         this.monde = monde;

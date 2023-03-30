@@ -17,7 +17,4 @@ public class FabriqueIdentifiant {
         return "etape" + noEtape++;
     }
 
-    public int getNoEtape(){
-        return noEtape;
-    }
 }

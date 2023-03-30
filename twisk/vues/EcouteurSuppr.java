@@ -2,13 +2,12 @@ package twisk.vues;
 
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.scene.shape.Arc;
 import twisk.mondeIG.ArcIG;
 import twisk.mondeIG.EtapeIG;
 import twisk.mondeIG.MondeIG;
 
 public class EcouteurSuppr implements EventHandler {
-    private MondeIG monde;
+    private final MondeIG monde;
     public EcouteurSuppr(MondeIG monde){
         this.monde = monde;
     }

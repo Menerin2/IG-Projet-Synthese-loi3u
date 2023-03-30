@@ -1,7 +1,5 @@
 package twisk.mondeIG;
 
-import javafx.scene.shape.Arc;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -9,13 +7,13 @@ import java.util.Map;
 
 public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
 
-    private Map<String, EtapeIG> map;
-    private Map<String, EtapeIG> selectionEtape;
-    private Map<String, EtapeIG> mapEntree;
-    private Map<String, EtapeIG> mapSortie;
-    private ArrayList<ArcIG> selectionArc = new ArrayList<>(10);
+    private final Map<String, EtapeIG> map;
+    private final Map<String, EtapeIG> selectionEtape;
+    private final Map<String, EtapeIG> mapEntree;
+    private final Map<String, EtapeIG> mapSortie;
+    private final ArrayList<ArcIG> selectionArc = new ArrayList<>(10);
 
-    private ArrayList<ArcIG> arcs = new ArrayList<>(10);
+    private final ArrayList<ArcIG> arcs = new ArrayList<>(10);
     private int cpt = 0;
     private PointDeControleIG pointClick;
     private int estTouche;
@@ -53,10 +51,7 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
         return etape1.getIdentifiant().equals(etape2.getIdentifiant());
     }
     public boolean testValiditeArc(ArcIG arc){
-        if(isEqual(arc.getPoints()[0].getEtape(), arc.getPoints()[1].getEtape())){
-            return true;
-        }
-        return false;
+        return isEqual(arc.getPoints()[0].getEtape(), arc.getPoints()[1].getEtape());
     }
     public void estSelectionne(EtapeIG etape){
         selectionEtape.put(etape.getIdentifiant(), etape);
@@ -94,10 +89,6 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
         return map;
     }
 
-    public int getCpt(){
-        return cpt;
-    }
-
     public ArrayList<ArcIG> getArcs() {
         return arcs;
     }
@@ -112,10 +103,6 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
 
     public PointDeControleIG getPointClick() {
         return pointClick;
-    }
-
-    public void setPointClick(PointDeControleIG pointClick) {
-        this.pointClick = pointClick;
     }
 
     public void estTouche(PointDeControleIG point){
@@ -144,7 +131,4 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
         return getMap().values().iterator();
     }
 
-    public Iterator iteratorArc(){
-        return getArcs().iterator();
-    }
 }

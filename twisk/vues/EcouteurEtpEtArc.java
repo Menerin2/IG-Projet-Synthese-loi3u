@@ -8,7 +8,7 @@ import twisk.mondeIG.MondeIG;
 
 public class EcouteurEtpEtArc implements EventHandler {
 
-    private MondeIG monde;
+    private final MondeIG monde;
     private EtapeIG etape;
     private ArcIG arc;
 

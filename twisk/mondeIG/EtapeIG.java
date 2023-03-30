@@ -16,7 +16,7 @@ public abstract class EtapeIG implements Iterable<PointDeControleIG>{
     private final int hauteur;
     private String temps;
     private String ecartTemps;
-    private ArrayList<PointDeControleIG> points = new ArrayList<>(4);
+    private final ArrayList<PointDeControleIG> points = new ArrayList<>(4);
 
     public EtapeIG(String nom){
         this.nom = nom;
