@@ -11,6 +11,8 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
 
     private Map<String, EtapeIG> map;
     private Map<String, EtapeIG> selectionEtape;
+    private Map<String, EtapeIG> mapEntree;
+    private Map<String, EtapeIG> mapSortie;
     private ArrayList<ArcIG> selectionArc = new ArrayList<>(10);
 
     private ArrayList<ArcIG> arcs = new ArrayList<>(10);
@@ -21,6 +23,8 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
     public MondeIG(){
         this.map = new HashMap<>();
         this.selectionEtape = new HashMap<>();
+        this.mapEntree = new HashMap<>();
+        this.mapSortie = new HashMap<>();
         EtapeIG etape = new ActiviteIG("Act"+cpt++);
         map.put(etape.getIdentifiant(), etape);
     }
@@ -73,6 +77,18 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
         selectionArc.clear();
         selectionEtape.clear();
     }
+    public void estEntree(EtapeIG etape){
+        mapEntree.put(etape.getIdentifiant(), etape);
+    }
+    public void plusEntree(EtapeIG etape){
+        mapEntree.remove(etape.getIdentifiant());
+    }
+    public void estSortie(EtapeIG etape){
+        mapSortie.put(etape.getIdentifiant(), etape);
+    }
+    public void plusSortie(EtapeIG etape){
+        mapSortie.remove(etape.getIdentifiant());
+    }
 
     public Map<String, EtapeIG> getMap(){
         return map;
@@ -113,6 +129,14 @@ public class MondeIG extends SujetObserve implements Iterable<EtapeIG>{
 
     public ArrayList<ArcIG> getSelectionArc(){
         return selectionArc;
+    }
+
+    public Map<String, EtapeIG> getMapEntree() {
+        return mapEntree;
+    }
+
+    public Map<String, EtapeIG> getMapSortie() {
+        return mapSortie;
     }
 
     @Override

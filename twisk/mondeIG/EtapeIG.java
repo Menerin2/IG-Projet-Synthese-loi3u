@@ -14,6 +14,8 @@ public abstract class EtapeIG implements Iterable<PointDeControleIG>{
     private double posY;
     private final int largeur;
     private final int hauteur;
+    private String temps;
+    private String ecartTemps;
     private ArrayList<PointDeControleIG> points = new ArrayList<>(4);
 
     public EtapeIG(String nom){
@@ -29,6 +31,8 @@ public abstract class EtapeIG implements Iterable<PointDeControleIG>{
             PointDeControleIG point = new PointDeControleIG(this, i);
             points.add(point);
         }
+        temps = "4";
+        ecartTemps = "2";
     }
 
     public String getNom() {
@@ -65,6 +69,22 @@ public abstract class EtapeIG implements Iterable<PointDeControleIG>{
 
     public int getHauteur() {
         return hauteur;
+    }
+
+    public String getTemps() {
+        return temps;
+    }
+
+    public void setTemps(String temps) {
+        this.temps = temps;
+    }
+
+    public String getEcartTemps() {
+        return ecartTemps;
+    }
+
+    public void setEcartTemps(String  ecartTemps) {
+        this.ecartTemps = ecartTemps;
     }
 
     public ArrayList<PointDeControleIG> getPoints() {

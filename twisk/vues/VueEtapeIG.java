@@ -15,7 +15,7 @@ public abstract class VueEtapeIG extends VBox implements Observateur{
     public VueEtapeIG(MondeIG monde, EtapeIG etape){
         this.monde = monde;
         this.etape = etape;
-        this.nom = new Label(etape.getNom() + " : 4 + 2 temps");
+        this.nom = new Label(etape.getNom() + " : "+etape.getTemps() + " + " +etape.getEcartTemps() +" temps");
         this.setOnDragDetected(new EcouteurDrag(this));
     }
 
